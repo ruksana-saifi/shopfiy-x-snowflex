@@ -1,0 +1,118 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: visible; /* Allow splashes to go outside */
+  }
+
+  /* Style for each powder splash circle */
+  .holi-splash {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: splash-animation 3s infinite, move-animation 4s infinite;
+  }
+
+  /* Animation for each powder splash (scale and fade) */
+  @keyframes splash-animation {
+    0% {
+      transform: scale(0.5);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(2);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+
+  /* Random movement animation */
+  @keyframes move-animation {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    100% {
+      transform: translateX(calc(100vw * random())) translateY(calc(100vh * random()));
+    }
+  }
+
+  /* Styling for individual color splashes */
+  .splash-pink {
+    background: radial-gradient(circle, #ff69b4, rgba(255, 105, 180, 0.4));
+  }
+
+  .splash-orange {
+    background: radial-gradient(circle, #ff9800, rgba(255, 152, 0, 0.4));
+  }
+
+  .splash-blue {
+    background: radial-gradient(circle, #3f51b5, rgba(63, 81, 181, 0.4));
+  }
+
+  .splash-green {
+    background: radial-gradient(circle, #4caf50, rgba(76, 175, 80, 0.4));
+  }
+
+  .splash-yellow {
+    background: radial-gradient(circle, #ffeb3b, rgba(255, 235, 59, 0.4));
+  }
+
+  .splash-purple {
+    background: radial-gradient(circle, #9c27b0, rgba(156, 39, 176, 0.4));
+  }
+
+  .splash-red {
+    background: radial-gradient(circle, #f44336, rgba(244, 67, 54, 0.4));
+  }
+
+  /* Optional message to display for Holi Festival */
+  .text-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff5722;
+    font-family: 'Molle', cursive;
+    font-size: 50px;
+    text-transform: uppercase;
+    z-index: 9999;
+  }
+</style>
+
+<!-- Holi Effect: Multiple Colorful Splashes -->
+<div class="holi-splash splash-pink"></div>
+<div class="holi-splash splash-orange"></div>
+<div class="holi-splash splash-blue"></div>
+<div class="holi-splash splash-green"></div>
+<div class="holi-splash splash-yellow"></div>
+<div class="holi-splash splash-purple"></div>
+<div class="holi-splash splash-red"></div>
+<div class="holi-splash splash-pink"></div>
+<div class="holi-splash splash-orange"></div>
+
+<!-- Optional Center Text -->
+<div class="text-center">Happy Holi!</div>
+
+<script>
+  // Function to randomize the position of each splash
+  function randomizeSplashPositions() {
+    const splashes = document.querySelectorAll('.holi-splash');
+    splashes.forEach(splash => {
+      // Randomize left and top position
+      const randomLeft = Math.random() * 100 + '%'; 
+      const randomTop = Math.random() * 100 + '%'; 
+      splash.style.left = randomLeft;
+      splash.style.top = randomTop;
+    });
+  }
+
+  // Call the function on page load to randomize positions
+  randomizeSplashPositions();
+</script>
