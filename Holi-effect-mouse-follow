@@ -1,0 +1,71 @@
+
+    
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #121212;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+#effect-container {
+    position: absolute;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+.effect {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    animation: burst 1s forwards;
+}
+
+@keyframes burst {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+</style>
+    
+  <div id="effect-container"></div>
+
+    <script>
+      const effectContainer = document.getElementById('effect-container');
+
+document.addEventListener('mousemove', (e) => {
+    const effect = document.createElement('div');
+    effect.classList.add('effect');
+
+    // Randomize colors
+    effect.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+    // Set the position based on mouse location
+    const size = Math.random() * 50 + 30; // Random size
+    effect.style.width = `${size}px`;
+    effect.style.height = `${size}px`;
+    effect.style.left = `${e.pageX - size / 2}px`;
+    effect.style.top = `${e.pageY - size / 2}px`;
+
+    effectContainer.appendChild(effect);
+
+    // Remove the effect after animation ends
+    setTimeout(() => {
+        effect.remove();
+    }, 1000);
+});
+
+    </script>
+  
