@@ -1,0 +1,124 @@
+
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* div:empty,
+#holi-effect div:empty {
+    display: block !important;
+} */
+body {
+    height: 100vh;
+    background-color: #121212;
+    overflow-x: hidden;
+  width:100%;
+    position: relative;
+}
+
+#effect-container {
+    position: absolute;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+  z-index:999
+}
+
+.effect {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    animation: burst 1s forwards;
+}
+.holi-decore {
+    position: fixed;
+    top: -67px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    max-width: 100%;
+  display:none;
+}
+  #happy-holi{
+       position: fixed;
+    bottom: -52px;
+    left: -32px;
+    z-index: 10;
+    width: 373px;
+  }
+  @media screen and (max-width:768px){
+    .holi-decore{
+      position: fixed;
+        top: 0;
+        width: 200%7
+        left: -100%;
+   
+}
+      #happy-holi{
+    width: 210px;
+        left: 20x;
+        bottom: 50x !important;
+  }
+  }
+@keyframes burst {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+</style>
+    
+  <div id="effect-container"></div>
+    
+      <img src="https://cdn.shopify.com/s/files/1/0742/2115/8699/files/happy_holi_festival.png?v=1740812580" 
+                              id="happy-holi" width="" height="" alt=""
+                                >
+    <img id="holi-decore" src="https://cdn.shopify.com/s/files/1/0742/2115/8699/files/holi-decore1.png?v=1740814286" class="holi-decore" width="" height="" alt=""
+                                >
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      const effectContainer = document.getElementById('effect-container');
+
+document.addEventListener('mousemove', (e) => {
+    const effect = document.createElement('div');
+    effect.classList.add('effect');
+
+    // Randomize colors
+    effect.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+    // Set the position based on mouse location
+    const size = Math.random() * 50 + 30; // Random size
+    effect.style.width = `${size}px`;
+    effect.style.height = `${size}px`;
+    effect.style.left = `${e.pageX - size / 2}px`;
+    effect.style.top = `${e.pageY - size / 2}px`;
+
+    effectContainer.appendChild(effect);
+
+    // Remove the effect after animation ends
+    setTimeout(() => {
+        effect.remove();
+    }, 1000);
+});
+
+      
+window.addEventListener("scroll", function () {
+    let img = document.getElementById("holi-decore"); // Replace with your image ID
+    let img2 = document.getElementById("happy-holi"); // Replace with your image ID
+    if (window.scrollY <= 80) {
+        img.style.display = "none"; // Hide the image
+        img2.style.display = "block"; // Hide the image
+    } else {
+        img.style.display = "block"; // Show the image
+        img2.style.display = "none"; // Show the image
+    }
+});
+
+    </script>
+  
