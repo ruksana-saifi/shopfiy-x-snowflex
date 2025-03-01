@@ -67,5 +67,22 @@ document.addEventListener('mousemove', (e) => {
 });
 
     </script>
+
+
+   <div class="holi-special"><img src="https://cdn.shopify.com/s/files/1/0654/2065/6684/files/Pngtree_happy_holi_festival_design_6146837.png?v=1740811333" 
+                              style="    position: fixed;
+    bottom: -52px;
+    left: -32px;
+    z-index: 10;
+    width: 373px;"
+                                ></div>
+
+    <img src="https://cdn.shopify.com/s/files/1/0654/2065/6684/files/holi-decore_b5ca7070-88e1-4779-8f15-57cfb377dca5.png?v=1740812241" 
+                              style="    position: fixed;
+   top: -52px;
+    left: -32px;
+    z-index: 10;
+    width: 100%;"
+                                ></div>
   
   
